@@ -10,4 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CAT_CLASS_HPP
+# define CAT_CLASS_HPP
 
+#include "Animal.class.hpp"
+
+class Cat : public Animal {
+	public:
+		Cat();							// Default constructor
+		Cat(const Cat &src);			// Copy constructor
+		~Cat();							// Destructor
+		Cat &operator=(const Cat &rhs);	// Assignment operator
+
+		Cat(std::string type);
+
+		virtual void makeSound() const;
+};
+
+#endif

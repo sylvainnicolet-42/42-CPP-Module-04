@@ -55,4 +55,7 @@ fclean: 		clean
 re: 			fclean all
 				@echo "$(_SUCCESS)🧹Clean + 🚀Build!$(_END)"
 
-.PHONY:			all clean fclean re
+run:			all
+				./$(NAME)
+
+.PHONY:			all clean fclean re run

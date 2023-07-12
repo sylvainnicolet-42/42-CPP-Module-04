@@ -10,4 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ANIMAL_CLASS_HPP
+# define ANIMAL_CLASS_HPP
 
+# include <iostream>
+
+class Animal {
+	public:
+		Animal();								// Default constructor
+		Animal(const Animal &src);				// Copy constructor
+		~Animal();								// Destructor
+		Animal &operator=(const Animal &rhs);	// Assignment operator
+
+		Animal(std::string type);
+
+		std::string getType() const;
+		virtual void makeSound() const;
+	protected:
+		std::string _type;
+};
+
+#endif

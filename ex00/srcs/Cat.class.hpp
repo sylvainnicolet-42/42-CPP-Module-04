@@ -19,7 +19,7 @@ class Cat : public Animal {
 	public:
 		Cat();							// Default constructor
 		Cat(const Cat &src);			// Copy constructor
-		~Cat();							// Destructor
+		virtual ~Cat();					// Destructor
 		Cat &operator=(const Cat &rhs);	// Assignment operator
 
 		Cat(std::string type);

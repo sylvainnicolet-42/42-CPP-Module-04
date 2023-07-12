@@ -58,4 +58,7 @@ re: 			fclean all
 run:			all
 				./$(NAME)
 
-.PHONY:			all clean fclean re run
+runleaks:		all
+				--leaks --atExit -- ./$(NAME)
+
+.PHONY:			all clean fclean re run runleaks

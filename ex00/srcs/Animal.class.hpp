@@ -19,7 +19,7 @@ class Animal {
 	public:
 		Animal();								// Default constructor
 		Animal(const Animal &src);				// Copy constructor
-		~Animal();								// Destructor
+		virtual ~Animal();						// Destructor
 		Animal &operator=(const Animal &rhs);	// Assignment operator
 
 		Animal(std::string type);

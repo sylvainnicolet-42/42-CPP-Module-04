@@ -33,6 +33,8 @@ Brain &Brain::operator=(const Brain &rhs) {
 }
 
 std::string Brain::getIdea(int i) const {
+	if (this->_ideas[i].empty())
+		return std::string("No idea...");
 	return this->_ideas[i];
 }
 

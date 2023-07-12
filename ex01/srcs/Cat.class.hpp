@@ -25,6 +25,9 @@ class Cat : public Animal {
 		Cat(std::string type);
 
 		virtual void makeSound() const;
+		Brain *getBrain() const;
+	protected:
+		Brain *_brain;
 };
 
 #endif

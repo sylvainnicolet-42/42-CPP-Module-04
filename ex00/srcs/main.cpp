@@ -28,10 +28,8 @@ int main(void) {
 	std::cout << j->getType() << " " << std::endl; std::cout << i->getType() << " " << std::endl; i->makeSound(); //will output the cat sound! j->makeSound();
 	meta->makeSound();
 
-	std::cout << std::endl;
-
 	// ANIMAL
-	std::cout << "---- ANIMAL ----" << std::endl;
+	std::cout << std::endl << "---- ANIMAL ----" << std::endl;
 	const Animal* animal = new Animal();
 	std::cout << "Type: " << animal->getType() << std::endl;
 	std::cout << "Sound: ";

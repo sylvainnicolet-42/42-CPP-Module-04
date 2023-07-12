@@ -16,15 +16,18 @@
 #include "Animal.class.hpp"
 
 class Dog : public Animal {
-public:
-	Dog();							// Default constructor
-	Dog(const Dog &src);			// Copy constructor
-	virtual ~Dog();					// Destructor
-	Dog &operator=(const Dog &rhs);	// Assignment operator
+	public:
+		Dog();							// Default constructor
+		Dog(const Dog &src);			// Copy constructor
+		virtual ~Dog();					// Destructor
+		Dog &operator=(const Dog &rhs);	// Assignment operator
 
-	Dog(std::string type);
+		Dog(std::string type);
 
-	virtual void makeSound() const;
+		virtual void makeSound() const;
+		Brain *getBrain() const;
+	protected:
+		Brain *_brain;
 };
 
 #endif

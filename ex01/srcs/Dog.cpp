@@ -13,10 +13,12 @@
 #include "Dog.class.hpp"
 
 Dog::Dog(): Animal("Dog") {
+	this->_brain = new Brain;
 	std::cout << "Dog default constructor called" << std::endl;
 }
 
 Dog::Dog(std::string type): Animal(type) {
+	this->_brain = new Brain;
 	std::cout << "Dog default constructor called" << std::endl;
 }
 
@@ -26,6 +28,7 @@ Dog::Dog(const Dog &src) {
 }
 
 Dog::~Dog() {
+	delete this->_brain;
 	std::cout << "Dog destructor called" << std::endl;
 }
 
@@ -39,3 +42,6 @@ void Dog::makeSound() const {
 	std::cout << "Woof!" << std::endl;
 }
 
+Brain *Dog::getBrain() const {
+	return this->_brain;
+}

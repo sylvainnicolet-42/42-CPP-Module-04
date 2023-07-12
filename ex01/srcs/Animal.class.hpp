@@ -14,6 +14,7 @@
 # define ANIMAL_CLASS_HPP
 
 # include <iostream>
+# include "Brain.class.hpp"
 
 class Animal {
 	public:
@@ -26,6 +27,7 @@ class Animal {
 
 		virtual std::string getType() const;
 		virtual void makeSound() const;
+		virtual Brain *getBrain() const = 0;
 	protected:
 		std::string _type;
 };

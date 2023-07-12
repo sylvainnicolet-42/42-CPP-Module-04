@@ -12,19 +12,20 @@
 
 #include "Cat.class.hpp"
 
-Cat::Cat(): Animal("Cat") {
+Cat::Cat(): _type("Cat") {
 	this->_brain = new Brain;
 	std::cout << "Cat default constructor called" << std::endl;
 }
 
-Cat::Cat(std::string type): Animal(type) {
+Cat::Cat(std::string type): _type(type) {
 	this->_brain = new Brain;
 	std::cout << "Cat default constructor called" << std::endl;
 }
 
 Cat::Cat(const Cat &src) {
+	this->_brain = new Brain(*src.getBrain());
+	this->_type = src.getType();
 	std::cout << "Cat copy constructor called" << std::endl;
-	*this = src;
 }
 
 Cat::~Cat() {
@@ -45,4 +46,8 @@ void Cat::makeSound() const {
 
 Brain *Cat::getBrain() const {
 	return this->_brain;
+}
+
+std::string Cat::getType() const {
+	return this->_type;
 }

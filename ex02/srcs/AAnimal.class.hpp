@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.class.hpp                                   :+:      :+:    :+:   */
+/*   AAnimal.class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: synicole <synicole@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,26 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_CLASS_HPP
-# define ANIMAL_CLASS_HPP
+#ifndef AANIMAL_CLASS_HPP
+# define AANIMAL_CLASS_HPP
 
 # include <iostream>
 # include "Brain.class.hpp"
 
-class Animal {
+class AAnimal {
 	public:
-		Animal();								// Default constructor
-		Animal(const Animal &src);				// Copy constructor
-		virtual ~Animal();						// Destructor
-		Animal &operator=(const Animal &rhs);	// Assignment operator
-
-		Animal(std::string type);
-
-		virtual std::string getType() const;
-		virtual void makeSound() const;
+		AAnimal &operator=(const AAnimal &rhs);	// Assignment operator
+		virtual ~AAnimal();	// Destructor
+		virtual std::string getType() const = 0;
+		virtual void makeSound() const = 0;
 		virtual Brain *getBrain() const = 0;
-	protected:
-		std::string _type;
 };
 
 #endif

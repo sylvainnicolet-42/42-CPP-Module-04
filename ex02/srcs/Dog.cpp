@@ -12,19 +12,20 @@
 
 #include "Dog.class.hpp"
 
-Dog::Dog(): Animal("Dog") {
+Dog::Dog(): _type("Dog") {
 	this->_brain = new Brain;
 	std::cout << "Dog default constructor called" << std::endl;
 }
 
-Dog::Dog(std::string type): Animal(type) {
+Dog::Dog(std::string type): _type(type) {
 	this->_brain = new Brain;
 	std::cout << "Dog default constructor called" << std::endl;
 }
 
 Dog::Dog(const Dog &src) {
+	this->_brain = new Brain(*src.getBrain());
+	this->_type = src.getType();
 	std::cout << "Dog copy constructor called" << std::endl;
-	*this = src;
 }
 
 Dog::~Dog() {
@@ -44,4 +45,8 @@ void Dog::makeSound() const {
 
 Brain *Dog::getBrain() const {
 	return this->_brain;
+}
+
+std::string Dog::getType() const {
+	return this->_type;
 }

@@ -12,7 +12,7 @@
 
 #include <iostream>
 
-#include "Animal.class.hpp"
+#include "AAnimal.class.hpp"
 #include "Dog.class.hpp"
 #include "Cat.class.hpp"
 #include "Brain.class.hpp"
@@ -21,15 +21,15 @@ int main(void) {
 
 	// 42 TESTS
 	std::cout << "---- 42 TESTS ----" << std::endl;
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
 
 	delete j;	//should not create a leak
 	delete i;
 
 	// CREATE ARRAY OF 10 ANIMALS
 	std::cout << std::endl << "---- ARRAY OF 10 ANIMALS ----" << std::endl;
-	Animal* animals[10];
+	AAnimal* animals[10];
 	for (int i = 0; i < 10; i++) {
 		if (i % 2 == 0)
 			animals[i] = new Dog();
@@ -52,16 +52,20 @@ int main(void) {
 
 	// CAT
 	std::cout << std::endl << "---- CAT ----" << std::endl;
-	Animal* cat = new Cat();
+	AAnimal* cat = new Cat();
 	cat->getBrain()->setIdea(0, "J'ai envie de ronronner...");
 	std::cout << "Idea 0: " << cat->getBrain()->getIdea(0) << std::endl;
+	cat->makeSound();
 	delete cat;
 
 	// DOG
 	std::cout << std::endl << "---- DOG ----" << std::endl;
-	Animal* dog = new Dog();
+	AAnimal* dog = new Dog();
+	AAnimal* dog2 = dog;
+	dog2->makeSound();
 	dog->getBrain()->setIdea(0, "J'ai envie de jouer avec un os...");
 	std::cout << "Idea 0: " << dog->getBrain()->getIdea(0) << std::endl;
+	dog->makeSound();
 	delete dog;
 
 	// COPY

@@ -15,6 +15,8 @@
 #include "Animal.class.hpp"
 #include "Dog.class.hpp"
 #include "Cat.class.hpp"
+#include "WrongAnimal.class.hpp"
+#include "WrongCat.class.hpp"
 
 int main(void) {
 
@@ -49,6 +51,13 @@ int main(void) {
 	std::cout << "Sound: ";
 	dog->makeSound();
 
+	// WRONG ANIMAL
+	std::cout << std::endl << "---- WRONG ANIMAL ----" << std::endl;
+	const WrongAnimal* wrongCat = new WrongCat();
+	std::cout << "Type: " << wrongCat->getType() << std::endl;
+	std::cout << "Sound: ";
+	wrongCat->makeSound();
+
 	// DELETE
 	std::cout << std::endl << "---- DELETE ----" << std::endl;
 	delete meta;
@@ -57,6 +66,7 @@ int main(void) {
 	delete animal;
 	delete cat;
 	delete dog;
+	delete wrongCat;
 
 	return 0;
 }

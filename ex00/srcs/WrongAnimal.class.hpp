@@ -10,4 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef WRONGANIMAL_CLASS_HPP
+# define WRONGANIMAL_CLASS_HPP
 
+# include <iostream>
+
+class WrongAnimal {
+	public:
+		WrongAnimal();									// Default constructor
+		WrongAnimal(const WrongAnimal &src);			// Copy constructor
+		~WrongAnimal();									// Destructor
+		WrongAnimal &operator=(const WrongAnimal &rhs);	// Assignment operator
+
+		WrongAnimal(std::string type);
+
+		std::string getType() const;
+		void makeSound() const;
+	protected:
+		std::string _type;
+};
+
+#endif

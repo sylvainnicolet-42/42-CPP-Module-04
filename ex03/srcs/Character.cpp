@@ -13,19 +13,19 @@
 #include "Character.class.hpp"
 
 Character::Character(): _name("Bob") {
-	std::cout << "Character default constructor called" << std::endl;
+//	std::cout << "Character default constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 }
 
 Character::Character(const std::string& name) : _name(name) {
-	std::cout << "Character constructor called" << std::endl;
+//	std::cout << "Character constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 }
 
 Character::Character(const Character &src): _name(src._name) {
-	std::cout << "Character copy constructor called" << std::endl;
+//	std::cout << "Character copy constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (src._inventory[i])
@@ -35,14 +35,14 @@ Character::Character(const Character &src): _name(src._name) {
 }
 
 Character::~Character() {
-	std::cout << "Character destructor called" << std::endl;
+//	std::cout << "Character destructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 		if (this->_inventory[i])
 			delete this->_inventory[i];
 }
 
 Character &Character::operator=(const Character &rhs) {
-	std::cout << "Character assignment operator called" << std::endl;
+//	std::cout << "Character assignment operator called" << std::endl;
 	this->_name = rhs._name;
 	for (int i = 0; i < 4; i++)
 	{
@@ -59,11 +59,13 @@ std::string const &	Character::getName() const {
 
 void	Character::equip(AMateria *m) {
 	for (int i = 0; i < 4; i++)
+	{
 		if (!this->_inventory[i])
 		{
 			this->_inventory[i] = m;
 			return ;
 		}
+	}
 }
 
 void	Character::unequip(int idx) {

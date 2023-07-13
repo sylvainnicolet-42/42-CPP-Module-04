@@ -13,24 +13,24 @@
 #include "AMateria.class.hpp"
 
 AMateria::AMateria() : _type("default") {
-	std::cout << "AMateria default constructor called" << std::endl;
+//	std::cout << "AMateria default constructor called" << std::endl;
 }
 
 AMateria::AMateria(std::string const & type) : _type(type) {
-	std::cout << "AMateria constructor called" << std::endl;
+//	std::cout << "AMateria constructor called" << std::endl;
 }
 
 AMateria::AMateria(const AMateria &src) {
-	std::cout << "AMateria copy constructor called" << std::endl;
+//	std::cout << "AMateria copy constructor called" << std::endl;
 	*this = src;
 }
 
 AMateria::~AMateria() {
-	std::cout << "AMateria destructor called" << std::endl;
+//	std::cout << "AMateria destructor called" << std::endl;
 }
 
 AMateria &AMateria::operator=(const AMateria &rhs) {
-	std::cout << "AMateria assignment operator called" << std::endl;
+//	std::cout << "AMateria assignment operator called" << std::endl;
 	this->_type = rhs._type;
 	return *this;
 }

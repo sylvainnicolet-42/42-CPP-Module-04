@@ -13,35 +13,35 @@
 #include "MateriaSource.class.hpp"
 
 MateriaSource::MateriaSource() {
-	std::cout << "MateriaSource default constructor called" << std::endl;
+//	std::cout << "MateriaSource default constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 		this->_materia[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &src) {
-	std::cout << "MateriaSource copy constructor called" << std::endl;
+//	std::cout << "MateriaSource copy constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_materia[i])
 			delete this->_materia[i];
-		this->_materia[i] = src._materia[i];
+		this->_materia[i] = src._materia[i]->clone();
 	}
 }
 
 MateriaSource::~MateriaSource() {
-	std::cout << "MateriaSource destructor called" << std::endl;
+//	std::cout << "MateriaSource destructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 		if (this->_materia[i])
 			delete this->_materia[i];
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
-	std::cout << "MateriaSource assignment operator called" << std::endl;
+//	std::cout << "MateriaSource assignment operator called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_materia[i])
 			delete this->_materia[i];
-		this->_materia[i] = rhs._materia[i];
+		this->_materia[i] = rhs._materia[i]->clone();
 	}
 	return *this;
 }

@@ -17,7 +17,14 @@
 # include "AMateria.class.hpp"
 
 class Cure: public AMateria {
-	// TODO
+	public:
+		Cure();								// Default constructor
+		Cure(const Cure &src);				// Copy constructor
+		virtual ~Cure();					// Destructor
+		Cure &operator=(const Cure &rhs);	// Assignment operator
+
+		virtual AMateria*	clone() const;
+		virtual void		use(ICharacter& target);
 };
 
 #endif

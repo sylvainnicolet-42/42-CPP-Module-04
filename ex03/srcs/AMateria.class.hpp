@@ -14,6 +14,7 @@
 # define AMATERIA_CLASS_HPP
 
 # include <iostream>
+# include "ICharacter.class.hpp"
 
 class AMateria
 {
@@ -28,3 +29,5 @@ class AMateria
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
 };
+
+#endif

@@ -17,7 +17,14 @@
 # include "AMateria.class.hpp"
 
 class Ice: public AMateria {
-	// TODO
+	public:
+		Ice();							// Default constructor
+		Ice(const Ice &src);			// Copy constructor
+		virtual ~Ice();					// Destructor
+		Ice &operator=(const Ice &rhs);	// Assignment operator
+
+		virtual AMateria*	clone() const;
+		virtual void		use(ICharacter& target);
 };
 
 #endif

@@ -14,6 +14,7 @@
 # define ICHARACTER_CLASS_HPP
 
 # include <iostream>
+#include "AMateria.class.hpp"
 
 class ICharacter
 {

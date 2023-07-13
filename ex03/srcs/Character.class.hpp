@@ -23,12 +23,15 @@ class Character : public ICharacter {
 		virtual ~Character();							// Destructor
 		Character &operator=(const Character &rhs);		// Assignment operator
 
-		Character(std::string name);					// Constructor
+		Character(const std::string& name);				// Constructor
 
 		virtual std::string const &	getName() const;
 		virtual void				equip(AMateria *m);
 		virtual void				unequip(int idx);
 		virtual void				use(int idx, ICharacter &target);
+	private:
+		std::string		_name;
+		AMateria		*_inventory[4];
 };
 
 #endif

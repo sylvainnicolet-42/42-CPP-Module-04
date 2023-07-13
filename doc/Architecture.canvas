@@ -1,12 +1,12 @@
 {
 	"nodes":[
-		{"type":"text","text":"## ICharacter\n\n```cpp\nclass ICharacter\n{\n\tpublic:\n\t\tvirtual ~ICharacter() {}\n\t\tvirtual std::string const & getName() const = 0;\n\t\tvirtual void equip(AMateria* m) = 0;\n\t\tvirtual void unequip(int idx) = 0;\n\t\tvirtual void use(int idx, ICharacter& target) = 0;\n};\n```","id":"3dc25f6a526d66cf","x":-620,"y":-160,"width":900,"height":360},
-		{"type":"text","text":"## IMateriaSource\n\n```cpp\nclass IMateriaSource\n{\n\tpublic:\n\t\tvirtual ~IMateriaSource() {}  \n\t\tvirtual void learnMateria(AMateria*) = 0;  \n\t\tvirtual AMateria* createMateria(std::string const & type) = 0;\n};\n```","id":"05c12a14c97a9d2b","x":-620,"y":300,"width":900,"height":360},
-		{"id":"fb651281302f3fcd","x":-620,"y":-620,"width":900,"height":360,"type":"text","text":"## AMateria\n\n```cpp\nclass AMateria\n{\n\tprotected:\n\t\t[...]\n\tpublic:\n\t\tAMateria(std::string const & type);\n\t\t[...]\n\t\tstd::string const & getType() const; //Returns the materia type\n\t\tvirtual AMateria* clone() const = 0;\n\t\tvirtual void use(ICharacter& target);\n};\n```"},
-		{"type":"text","text":"## Ice","id":"c89e27a49371b590","x":440,"y":-560,"width":320,"height":100},
-		{"type":"text","text":"## Cure","id":"f4ddf881e64f9f26","x":440,"y":-400,"width":320,"height":100},
-		{"type":"text","text":"## Character","id":"d9d0889d72e6b5a0","x":440,"y":-30,"width":320,"height":100},
-		{"type":"text","text":"## MateriaSource","id":"120a5f9c02ed1017","x":480,"y":430,"width":280,"height":100}
+		{"type":"text","text":"## ICharacter\n\n```cpp\nclass ICharacter\n{\n\tpublic:\n\t\tvirtual ~ICharacter() {}\n\t\tvirtual std::string const & getName() const = 0;\n\t\tvirtual void equip(AMateria* m) = 0;\n\t\tvirtual void unequip(int idx) = 0;\n\t\tvirtual void use(int idx, ICharacter& target) = 0;\n};\n```","id":"3dc25f6a526d66cf","x":-620,"y":-160,"width":900,"height":360,"color":"2"},
+		{"type":"text","text":"## IMateriaSource\n\n```cpp\nclass IMateriaSource\n{\n\tpublic:\n\t\tvirtual ~IMateriaSource() {}  \n\t\tvirtual void learnMateria(AMateria*) = 0;  \n\t\tvirtual AMateria* createMateria(std::string const & type) = 0;\n};\n```","id":"05c12a14c97a9d2b","x":-620,"y":300,"width":900,"height":360,"color":"2"},
+		{"id":"fb651281302f3fcd","x":-620,"y":-620,"width":900,"height":360,"color":"3","type":"text","text":"## AMateria\n\n```cpp\nclass AMateria\n{\n\tprotected:\n\t\t[...]\n\tpublic:\n\t\tAMateria(std::string const & type);\n\t\t[...]\n\t\tstd::string const & getType() const; //Returns the materia type\n\t\tvirtual AMateria* clone() const = 0;\n\t\tvirtual void use(ICharacter& target);\n};\n```"},
+		{"type":"text","text":"## Ice","id":"c89e27a49371b590","x":440,"y":-560,"width":320,"height":100,"color":"5"},
+		{"type":"text","text":"## Cure","id":"f4ddf881e64f9f26","x":440,"y":-400,"width":320,"height":100,"color":"5"},
+		{"type":"text","text":"## Character","id":"d9d0889d72e6b5a0","x":440,"y":-30,"width":320,"height":100,"color":"5"},
+		{"type":"text","text":"## MateriaSource","id":"120a5f9c02ed1017","x":480,"y":430,"width":280,"height":100,"color":"5"}
 	],
 	"edges":[
 		{"id":"6cbae87c8c4d4341","fromNode":"fb651281302f3fcd","fromSide":"right","toNode":"c89e27a49371b590","toSide":"left"},

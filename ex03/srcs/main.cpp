@@ -39,5 +39,33 @@ int main() {
 	delete me;
 	delete src;
 
+	// CREATE A MATERIASOURCE AND LEARN A MATERIA
+	IMateriaSource* materiaSource = new MateriaSource();
+	materiaSource->learnMateria(new Ice());
+
+	// CREATE TWO CHARACTERS
+	ICharacter* pikachu = new Character("Pikachu");
+	ICharacter* raichu = new Character("Raichu");
+
+	// CREATE TWO MATERIAS FROM THE MATERIASOURCE AND EQUIP THEM TO THE CHARACTER
+	AMateria* materia;
+	materia = materiaSource->createMateria("ice");
+	pikachu->equip(materia);
+	materia = materiaSource->createMateria("ice");
+	pikachu->equip(materia);
+
+	// USE THE MATERIAS
+	pikachu->use(0, *raichu);
+	pikachu->use(1, *raichu);
+	pikachu->use(2, *raichu);
+
+	// UNEQUIP THE FIRST MATERIA AND USE IT AGAIN
+	pikachu->unequip(0);
+	pikachu->use(0, *raichu);
+
+	delete raichu;
+	delete pikachu;
+	delete materiaSource;
+
 	return 0;
 }

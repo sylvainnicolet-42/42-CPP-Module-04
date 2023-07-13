@@ -17,7 +17,14 @@
 # include "IMateriaSource.class.hpp"
 
 class MateriaSource: public IMateriaSource {
-	// TODO
+	public:
+		MateriaSource();									// Default constructor
+		MateriaSource(const MateriaSource &src);			// Copy constructor
+		virtual ~MateriaSource();							// Destructor
+		MateriaSource &operator=(const MateriaSource &rhs);	// Assignment operator
+
+		virtual void		learnMateria(AMateria* m);
+		virtual AMateria*	createMateria(std::string const & type);
 };
 
 #endif

@@ -17,7 +17,18 @@
 # include "ICharacter.class.hpp"
 
 class Character: public ICharacter {
-	// TODO
+	public:
+		Character();									// Default constructor
+		Character(const Character &src);				// Copy constructor
+		virtual ~Character();							// Destructor
+		Character &operator=(const Character &rhs);		// Assignment operator
+
+		Character(std::string name);					// Constructor
+
+		virtual std::string const &	getName() const;
+		virtual void				equip(AMateria* m);
+		virtual void				unequip(int idx);
+		virtual void				use(int idx, ICharacter& target);
 };
 
 #endif

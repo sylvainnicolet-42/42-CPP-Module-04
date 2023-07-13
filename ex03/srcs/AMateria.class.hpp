@@ -20,16 +20,19 @@ class ICharacter;
 
 class AMateria
 {
-	protected:
-		// Todo
 	public:
+		AMateria();									// Default constructor
+		AMateria(AMateria const &src);				// Copy constructor
+		virtual ~AMateria();						// Destructor
+		AMateria &operator=(const AMateria &rhs);	// Assignment operator
+
 		AMateria(std::string const & type);
-		// Todo
 
-		std::string const & getType() const; //Returns the materia type
-
-		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
+		std::string const & getType() const;
+		virtual			AMateria* clone() const = 0;
+		virtual void	use(ICharacter& target);
+	protected:
+		std::string		_type;
 };
 
 #endif

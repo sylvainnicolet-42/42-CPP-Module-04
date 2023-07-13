@@ -16,7 +16,7 @@
 # include <iostream>
 # include "ICharacter.class.hpp"
 
-class Character: public ICharacter {
+class Character : public ICharacter {
 	public:
 		Character();									// Default constructor
 		Character(const Character &src);				// Copy constructor
@@ -26,9 +26,9 @@ class Character: public ICharacter {
 		Character(std::string name);					// Constructor
 
 		virtual std::string const &	getName() const;
-		virtual void				equip(AMateria* m);
+		virtual void				equip(AMateria *m);
 		virtual void				unequip(int idx);
-		virtual void				use(int idx, ICharacter& target);
+		virtual void				use(int idx, ICharacter &target);
 };
 
 #endif

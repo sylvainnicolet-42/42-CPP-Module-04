@@ -28,12 +28,9 @@ Character::Character(const Character &src): _name(src._name) {
 	std::cout << "Character copy constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
-		if (src._inventory[i]) {
+		if (src._inventory[i])
 			delete this->_inventory[i];
-			this->_inventory[i] = src._inventory[i]->clone();
-		}
-		else
-			this->_inventory[i] = NULL;
+		this->_inventory[i] = src._inventory[i]->clone();
 	}
 }
 
@@ -50,11 +47,8 @@ Character &Character::operator=(const Character &rhs) {
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i])
-		{
 			delete this->_inventory[i];
-			this->_inventory[i] = rhs._inventory[i]->clone();
-		}
-		this->_inventory[i] = NULL;
+		this->_inventory[i] = rhs._inventory[i]->clone();
 	}
 	return *this;
 }
@@ -63,7 +57,7 @@ std::string const &	Character::getName() const {
 	return this->_name;
 }
 
-void				Character::equip(AMateria *m) {
+void	Character::equip(AMateria *m) {
 	for (int i = 0; i < 4; i++)
 		if (!this->_inventory[i])
 		{
@@ -72,12 +66,12 @@ void				Character::equip(AMateria *m) {
 		}
 }
 
-void				Character::unequip(int idx) {
+void	Character::unequip(int idx) {
 	if (idx >= 0 && idx < 4)
 		this->_inventory[idx] = NULL;
 }
 
-void				Character::use(int idx, ICharacter &target) {
+void	Character::use(int idx, ICharacter &target) {
 	if (idx >= 0 && idx < 4 && this->_inventory[idx])
 		this->_inventory[idx]->use(target);
 }

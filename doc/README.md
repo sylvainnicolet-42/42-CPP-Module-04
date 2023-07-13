@@ -42,3 +42,36 @@ int main() {
     return 0;
 }
 ```
+
+## Dépendances circulaires
+
+Le conflit que vous rencontrez lors de l'importation des classes peut être dû à des dépendances circulaires entre les classes `AMateria` et `ICharacter`. Pour résoudre ce problème, vous pouvez utiliser des déclarations anticipées (forward declarations) pour déclarer les classes avant leurs définitions réelles. Voici un exemple de modification de votre code pour résoudre le conflit :
+
+```cpp
+// Déclaration anticipée de la classe ICharacter
+class ICharacter;
+
+class AMateria
+{
+protected:
+    // ...
+public:
+    AMateria(std::string const & type);
+    // ...
+    std::string const & getType() const; // Retourne le type de materia
+    virtual AMateria* clone() const = 0;
+    virtual void use(ICharacter& target);
+};
+
+class ICharacter
+{
+public:
+    virtual ~ICharacter() {}
+    virtual std::string const & getName() const = 0;
+    virtual void equip(AMateria* m) = 0;
+    virtual void unequip(int idx) = 0;
+    virtual void use(int idx, ICharacter& target) = 0;
+};
+```
+
+En déclarant `ICharacter` de manière anticipée avant de définir `AMateria`, vous informez le compilateur que `ICharacter` est un type valide sans nécessiter la définition complète à ce stade. Cela résout le problème de dépendance circulaire et vous permet d'importer les deux classes sans conflits.
